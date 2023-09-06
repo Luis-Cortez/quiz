@@ -49,9 +49,8 @@ populateQuestions()
 function check(){
     let inputPicked = null;
 
-    if(score.classList.contains("show")){
+    if(!score.classList.contains("hide")){
         btn.textContent = "Next"
-        score.classList.remove('show')
         score.classList.add('hide')
         Q_container.classList.remove("hide")
         return
@@ -77,7 +76,6 @@ function check(){
         Q_container.classList.add('hide');
         score.textContent = `Your total score was ${correctCount}/${total}`;
         score.classList.remove('hide')
-        score.classList.add('show')
         btn.textContent = "Restart"
         correctCount = 0
     }

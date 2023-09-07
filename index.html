@@ -6,24 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .hide{
-            display: none;
-        }
-    </style>
 </head>
 <body>
 
-   <div id="question-container">
+   <div class="question-container" id="question-container">
         <h1 id="question"></h1>
-
-        <label for="a" id="label-a"></label>
-        <input type="radio" name="input" id="a">
-
-        <label for="b" id="label-b"></label>
-        <input type="radio" name="input" id="b">
+        
+        <div class="input-container">
+            <div class="answer">
+                <input type="radio" name="input" id="a">
+                <label for="a" id="label-a"></label>
+               </div>
+        
+               <div class="answer">
+                <input type="radio" name="input" id="b">
+                <label for="b" id="label-b"></label>
+               </div>
+        </div>
    </div>
-   <div id="score"></div>
+   <h1 id="score"></h1>
    <button id="btn">Next</button>
 
 </body>

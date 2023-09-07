@@ -7,11 +7,12 @@ const Q_container = document.getElementById('question-container');
 const score = document.getElementById('score');
 let i = 0;
 let correctCount = 0;
+btn.style.background = "rgb(0, 132, 255)"
 
 let questionList = [
 
     {
-        question:"what's 1+1",
+        question:"What is 1+1?",
         a: {
             text:"2",
             isCorrect: true,
@@ -23,13 +24,25 @@ let questionList = [
     },
 
     {
-        question:"what's 2+2",
+        question:"What is 44x44?",
         a: {
-            text:"5",
+            text: 44*44+2,
             isCorrect: false,
         },
         b: {
-            text:"4",
+            text:44*44,
+            isCorrect: true,
+        }
+    },
+
+    {
+        question:"What is 22x22?",
+        a: {
+            text:22*22+4,
+            isCorrect: false,
+        },
+        b: {
+            text: 22*22,
             isCorrect: true,
         }
     }
@@ -37,8 +50,8 @@ let questionList = [
 
 function populateQuestions(){
     question.textContent = questionList[i].question;
-    labelA.textContent = questionList[i].a.text;
-    labelB.textContent = questionList[i].b.text;
+    labelA.textContent = `A) ${questionList[i].a.text}`;
+    labelB.textContent = `B) ${questionList[i].b.text}`;
 }
 
 
@@ -52,13 +65,16 @@ function check(){
     if(!score.classList.contains("hide")){
         btn.textContent = "Next"
         score.classList.add('hide')
+        Q_container.classList.add('question-container')
         Q_container.classList.remove("hide")
+        btn.style.background = "rgb(0, 132, 255)"
         return
     }
 
     inputs.forEach(inp=>{
         if(inp.checked){
             inputPicked = inp.id 
+            inp.checked = false
         }
     })
 
@@ -73,11 +89,14 @@ function check(){
    if(i >= questionList.length-1){
         i = 0
         let total = questionList.length
-        Q_container.classList.add('hide');
-        score.textContent = `Your total score was ${correctCount}/${total}`;
-        score.classList.remove('hide')
-        btn.textContent = "Restart"
+        Q_container.classList.remove('question-container')
+        Q_container.classList.add("hide");
+        score.textContent = `Your total score is ${correctCount}/${total}`;
+        score.classList.remove("hide")
+        btn.textContent = "Retry"
+        btn.style.background = "rgb(27, 252, 27)"
         correctCount = 0
+
     }
     else{
         i++
@@ -85,4 +104,4 @@ function check(){
     populateQuestions()
 }
 
-btn.addEventListener('click',check)
+btn.addEventListener('click',check);

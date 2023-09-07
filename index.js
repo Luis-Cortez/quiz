@@ -117,8 +117,9 @@ function Next(){
         correctCount++
    }
 
-//    check for last question if so dont increment i and show score
+//    check for last question if yes do not increment i and show score
     isLastQuestion()
+    
     // update current Question
     populateQuestions()
 }

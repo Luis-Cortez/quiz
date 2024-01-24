@@ -3,8 +3,13 @@ const inputs = document.querySelectorAll('input');
 const question = document.getElementById('question');
 const labelA = document.getElementById('label-a');
 const labelB = document.getElementById('label-b');
-const Q_container = document.getElementById('question-container');
+const Q_container = document.querySelector('.question-container');
 const score = document.getElementById('score');
+
+const start_btn = document.querySelector('.start-btn');
+const main = document.getElementById('main');
+const greet = document.getElementById('greet');
+
 let i = 0;
 let correctCount = 0;
 let inputPicked = null;
@@ -49,6 +54,34 @@ let questionList = [
     }
 ];
 
+
+
+populateQuestions()
+
+function Next(){
+    inputPicked = null
+    // check if score element is hidden if not then hide it and reset everything
+    reset()
+
+    // check which choice the user made and if its null than do not go to the next question
+    checkInputChosen()
+
+//    check if choice is correct if yes increment correctCount
+
+   if(questionList[i][inputPicked].isCorrect){
+        correctCount++
+   }
+
+//    check for last question if yes do not increment i and show score
+    isLastQuestion()
+    
+    // update current Question
+    populateQuestions()
+}
+
+btn.addEventListener('click',Next);
+start_btn.onclick = startQuiz;
+
 function populateQuestions(){
     question.textContent = questionList[i].question;
     labelA.textContent = `A) ${questionList[i].a.text}`;
@@ -68,7 +101,6 @@ function reset(){
 }
 
 function checkInputChosen(){
-
     inputs.forEach(inp=>{
         if(inp.checked){
             inputPicked = inp.id 
@@ -99,29 +131,7 @@ function isLastQuestion(){
     }
 }
 
-populateQuestions()
-
-
-
-function Next(){
-    inputPicked = null
-    // check if score element is hidden if not then hide it and reset everything
-    reset()
-
-    // check which choice the user made and if its null than do not go to the next question
-    checkInputChosen()
-
-//    check if choice is correct if yes increment correctCount
-
-   if(questionList[i][inputPicked].isCorrect){
-        correctCount++
-   }
-
-//    check for last question if yes do not increment i and show score
-    isLastQuestion()
-    
-    // update current Question
-    populateQuestions()
+function startQuiz(){
+    main.classList.add('show')
+    greet.classList.add('hide')
 }
-
-btn.addEventListener('click',Next);

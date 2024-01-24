@@ -12,6 +12,9 @@ body{
     justify-content: center;
 }
 
+main{
+    display: none;
+}
 
 .question-container{
     display: flex;
@@ -65,3 +68,10 @@ input{
 }
 
 
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}

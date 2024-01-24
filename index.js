@@ -4,7 +4,8 @@ const question = document.getElementById('question');
 const labelA = document.getElementById('label-a');
 const labelB = document.getElementById('label-b');
 const Q_container = document.querySelector('.question-container');
-const score = document.getElementById('score');
+const score_container = document.querySelector('.score-container');
+const score = document.querySelector('#score');
 
 const start_btn = document.querySelector('.start-btn');
 const main = document.getElementById('main');
@@ -55,9 +56,9 @@ function populateQuestions(){
 
 function reset(){
      
-    if(!score.classList.contains("hide")){
+    if(!score_container.classList.contains("hide")){
         btn.textContent = "Next"
-        score.classList.add('hide')
+        score_container.classList.add('hide')
         Q_container.classList.add('question-container')
         Q_container.classList.remove("hide")
         btn.style.background = "rgb(0, 132, 255)"
@@ -85,7 +86,7 @@ function isLastQuestion(){
         Q_container.classList.remove('question-container')
         Q_container.classList.add("hide");
         score.textContent = `Your total score is ${correctCount}/${total}`;
-        score.classList.remove("hide")
+        score_container.classList.remove("hide")
         btn.textContent = "Retry"
         btn.style.background = "rgb(27, 252, 27)"
         correctCount = 0

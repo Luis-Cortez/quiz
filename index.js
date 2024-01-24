@@ -13,50 +13,16 @@ const greet = document.getElementById('greet');
 let i = 0;
 let correctCount = 0;
 let inputPicked = null;
-btn.style.background = "rgb(0, 132, 255)"
+btn.style.background = "rgb(0, 132, 255)";
 
-let questionList = [
+async function getQuestions(){
+    const response = await fetch("./questions.json")
+    const questionList = await response.json()
 
-    {
-        question:"What is 1+1?",
-        a: {
-            text:"2",
-            isCorrect: true,
-        },
-        b: {
-            text:"1",
-            isCorrect: false,
-        }
-    },
+    populateQuestions()
+    btn.addEventListener('click',Next);
+    start_btn.onclick = startQuiz;
 
-    {
-        question:"What is 44x44?",
-        a: {
-            text: 44*44+2,
-            isCorrect: false,
-        },
-        b: {
-            text:44*44,
-            isCorrect: true,
-        }
-    },
-
-    {
-        question:"What is 22x22?",
-        a: {
-            text:22*22+4,
-            isCorrect: false,
-        },
-        b: {
-            text: 22*22,
-            isCorrect: true,
-        }
-    }
-];
-
-
-
-populateQuestions()
 
 function Next(){
     inputPicked = null
@@ -79,8 +45,7 @@ function Next(){
     populateQuestions()
 }
 
-btn.addEventListener('click',Next);
-start_btn.onclick = startQuiz;
+
 
 function populateQuestions(){
     question.textContent = questionList[i].question;
@@ -135,3 +100,10 @@ function startQuiz(){
     main.classList.add('show')
     greet.classList.add('hide')
 }
+
+}
+
+getQuestions()
+
+
+

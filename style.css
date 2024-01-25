@@ -61,7 +61,6 @@ main{
 }
 
 .question-container{
-    border: 1px solid wheat;
     display: flex;
     flex-direction: column;
     align-items: center;

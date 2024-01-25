@@ -1,0 +1,47 @@
+[
+    {
+        "question":"Who was the first President of the United states?",
+        "a": {
+            "text":"Abraham Lincon",
+            "isCorrect": false
+        },
+        "b": {
+            "text":"George Washington",
+            "isCorrect": true
+        }
+    },
+    {
+        "question":" Who was the first person to sign the Declaration of Independence?",
+        "a": {
+            "text":"Thomas Jefferson",
+            "isCorrect": false
+        },
+        "b": {
+            "text":"John Hancock",
+            "isCorrect": true
+        }
+    },
+    {
+        "question":"The first national capitol was located in what city?",
+        "a": {
+            "text":"New York",
+            "isCorrect": true
+        },
+        "b": {
+            "text":"Boston",
+            "isCorrect": false
+        }
+    },
+    {
+        "question":"At the time of his death, who was the fourth president to have been assassinated?",
+        "a": {
+            "text":"John F. Kennedy",
+            "isCorrect": true
+        },
+        "b": {
+            "text":"John Ballock",
+            "isCorrect": false
+        }
+    }
+
+]

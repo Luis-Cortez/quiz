@@ -6,6 +6,7 @@ const labelB = document.getElementById('label-b');
 const Q_container = document.querySelector('.question-container');
 const score_container = document.querySelector('.score-container');
 const score = document.querySelector('#score');
+const subscribe_btn = document.getElementById("subscribe");
 
 const start_btn = document.querySelector('.start-btn');
 const main = document.getElementById('main');
@@ -14,10 +15,10 @@ const greet = document.getElementById('greet');
 let i = 0;
 let correctCount = 0;
 let inputPicked = null;
-btn.style.background = "rgb(0, 132, 255)";
+
 
 async function getQuestions(){
-    const response = await fetch("./questions.json")
+    const response = await fetch("./assets/questions.json")
     const questionList = await response.json()
 
     populateQuestions()
@@ -61,7 +62,8 @@ function reset(){
         score_container.classList.add('hide')
         Q_container.classList.add('question-container')
         Q_container.classList.remove("hide")
-        btn.style.background = "rgb(0, 132, 255)"
+        score.textContent = "Subscribe to view Score";
+        subscribe_btn.classList.remove("hide")
         return
     }
 }
@@ -85,20 +87,26 @@ function isLastQuestion(){
         let total = questionList.length
         Q_container.classList.remove('question-container')
         Q_container.classList.add("hide");
-        score.textContent = `Your total score is ${correctCount}/${total}`;
         score_container.classList.remove("hide")
-        btn.textContent = "Retry"
-        btn.style.background = "rgb(27, 252, 27)"
-        correctCount = 0
-
+        btn.textContent = "Retake";
+        displayScore(total);
+       
     }
     else{
         i++
     }
 }
 
+function displayScore(total){
+    setTimeout(()=>{
+        subscribe_btn.classList.add("hide")
+        score.textContent = `Just kidding! Your total score is ${correctCount}/${total}`;
+        correctCount = 0;
+    },2300)
+}
+
 function startQuiz(){
-    main.classList.add('show')
+    main.classList.add('flex')
     greet.classList.add('hide')
 }
 

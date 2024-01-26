@@ -2,7 +2,7 @@
     {
         "question":"Who was the first President of the United states?",
         "a": {
-            "text":"Abraham Lincon",
+            "text":"Abraham Lincoln",
             "isCorrect": false
         },
         "b": {
